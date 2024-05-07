@@ -1,24 +1,25 @@
-            Contexto:
-            Dado que acesse o login na plataforma
+Funcionalidade: Login na plataforma
 
-            Cenário: Ao inserir dados válidos deve ser direcionado para a tela de checkout
-            Quando eu digitar o usuário "joao@ebac.com.br
-            E a senha "senha@123"
-            Então deve direcionar para a tela de checkout
+Cenário: Ao inserir dados válidos deve ser direcionado para a tela de checkout
+  Dado que estou na página de login da EBAC-SHOP
+  Quando insiro um nome de usuário e senha válidos
+  E clico no botão "Entrar"
+  Então devo ser direcionado para a tela de checkout
 
-            Cenário: Ao inserir um dos campos inválidos deve exibir uma mensagem de alerta “Usuário ou senha inválidos"
-            Quando eu digitar o usuário "xxxyyyzzz@ebac.com.br
-            E a senha "senha@123"
-            Então deve exibir uma mensagem de alerta “Usuário ou senha inválidos"
+  Exemplo:
+    | nome_de_usuario | senha   |
+    | usuario_valido  | 123456  |
+    | teste123         | 7890abc |
 
-            Esquema do Cenário: Autenticar multiplos usuários
-            Quando eu digitar o <usuario>
-            E a <senha>
-            Então deve exibir a <mensagem> de sucesso
+Cenário: Ao inserir um dos campos inválidos
+  Dado que estou na página de login da EBAC-SHOP
+  Quando insiro um nome de usuário ou senha inválidos
+  E clico no botão "Entrar"
+  Então devo ver uma mensagem de alerta informando "Usuário ou senha inválidos"
 
-            Exemplos:
-            usuario|senha|mensagem|
-            | "joao@ebac.com.br" | "teste@123" | "Olá João" |
-            | "maria@ebac.com.br" | "teste@123" | "Olá Maria" |
-            | "jose@ebac.com.br" | "teste@123" | "Olá José" |
+  Exemplo:
+    | nome_de_usuario | senha   |
+    | usuario_invalido | senha_valida  |
+    | usuario_valido  | senha_invalida |
+
 
